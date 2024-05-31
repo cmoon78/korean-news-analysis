@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Summary Export</h1>
+<form action="{{ url_for('export_file') }}" method="post">
+    <label for="report_type">Export as:</label>
+    <select name="report_type" id="report_type" required>
+        <option value="csv">CSV</option>
+        <option value="xlsx">Excel</option>
+    </select>
+    <br>
+    <button type="submit">Export</button>
+</form>
+{% endblock %}

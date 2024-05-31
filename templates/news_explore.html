@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>News Explore</h1>
+<div>
+    <h2>News Volume Over Time</h2>
+    <img src="{{ url_for('static', filename='news_volume.png') }}" alt="News Volume Graph">
+</div>
+<div>
+    <h2>Word Cloud</h2>
+    <img src="{{ url_for('static', filename='word_cloud.png') }}" alt="Word Cloud">
+</div>
+<div>
+    <h2>Network Graph</h2>
+    <img src="{{ url_for('static', filename='network_graph.png') }}" alt="Network Graph">
+</div>
+<div>
+    <h2>Top 10 Keywords</h2>
+    <pre>{{ keyword_summary }}</pre>
+</div>
+{% endblock %}

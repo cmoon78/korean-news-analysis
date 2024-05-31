@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Start Here</h1>
+<form id="uploadForm" method="post" action="{{ url_for('upload_file') }}" enctype="multipart/form-data">
+    <label for="file">Upload CSV File:</label>
+    <input type="file" id="file" name="file" required>
+    <label for="keyword">Keyword:</label>
+    <input type="text" id="keyword" name="keyword" required>
+    <label for="report_type">Report Type:</label>
+    <select id="report_type" name="report_type">
+        <option value="csv">CSV</option>
+        <option value="xlsx">XLSX</option>
+    </select>
+    <label for="time_filter">Time Filter:</label>
+    <select id="time_filter" name="time_filter">
+        <option value="monthly">Monthly</option>
+        <option value="yearly">Yearly</option>
+    </select>
+    <button type="submit">Upload</button>
+</form>
+{% endblock %}
