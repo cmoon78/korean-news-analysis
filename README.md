@@ -2,6 +2,16 @@
 
 This web app helps users understand news trends based on CSV files of uploaded news datasets that are selectively collected and processed.
 
+# Caution
+Before running the application, please be aware of the following:
+
+1. File Directory Update: After downloading the repository, you'll need to update the file paths within the application code to reflect the location where you store your project folter on your local PC.
+
+2. CSV File Format: The uploaded CSV file must contain specific columns for the application to process the data correctly. These columns are:
+item_id | title | description | pub_date | author | link | category1 | category2 (optional) | source_name
+
+If you want to use csv files with different data columns, you need to update app.py and utils.py to successfully run the code. 
+
 ## Project Structure
 ```
 KNA
