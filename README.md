@@ -5,9 +5,9 @@ This web app helps users understand news trends based on CSV files of uploaded n
 # Caution
 Before running the application, please be aware of the following:
 
-1. File Directory Update: After downloading the repository, you'll need to update the file paths within the application code to reflect the location where you store your project folter on your local PC.
+1. **File Directory Update**: After downloading the repository, you'll need to update the file paths within the application code to reflect the location where you store your project folter on your local PC.
 
-2. CSV File Format: The uploaded CSV file must contain specific columns for the application to process the data correctly. These columns are:
+2. **CSV File Format**: The uploaded CSV file must contain specific columns for the application to process the data correctly. These columns are:
 item_id | title | description | pub_date | author | link | category1 | category2 (optional) | source_name
 
 If you want to use csv files with different data columns, you need to update app.py and utils.py to successfully run the code. 
@@ -34,10 +34,28 @@ KNA
 ├── positive.txt
 ├── negative.txt
 ├── requirements.txt
-├── sample.csv
+├── Sample_for_testing.csv
 ├── LICENSE
 └── venv # Your virtual environment director
 ```
+## Features
+- **Upload and Analyze News Data**: Upload CSV files containing news articles and gain insights through keyword analysis, sentiment analysis, and company identification.
+- **Keyword Filtering**: Filter news articles based on keywords within the description column to focus your analysis.
+- **Data Visualization**: Explore news trends through various charts and graphs in the News Explore section, including total stories, volume by date, most published headlines, time series analysis, and sentiment over time.
+- **Sentiment Analysis**: Gauge the overall sentiment (positive, negative, or neutral) of news articles based on keywords entered by the user and sentiment lexicons (positive.txt and negative.txt).
+- **Company Identification**: Identify important companies mentioned in news articles using the KOSPI200_Industry_Info.xlsx file. This ensures accurate company recognition, even for similar names like "삼성" and "삼성전자".
+
+## Data Description
+CSV File Columns:
+- **item_id**: A unique identifier for each news item.
+- **title**: The headline of the news article.
+- **description**: A brief description or excerpt from the news article.
+- **pub_date**: The publication date of the news article.
+- **author**: The author of the news article (if available).
+- **link**: A URL link to the full news article.
+- **category1**: The primary category of the news article.
+- **category2**: The secondary category (may be empty).
+- **source_name**: The source from which the news article was obtained.
 
 ## Installation
 
@@ -78,14 +96,9 @@ KNA
 3. **Access the app:**
 
     Open a web browser and go to `http://localhost:8080`.
+    Upload Sample_for_testing.csv to check if the app is working correctly.
 
-## Features
 
-- **Upload News Datasets**: Users can upload CSV files containing news data. The app supports various formats and ensures data integrity before processing.
-- **Analyze Trends**: The app processes the data and helps users understand trends in the news. It performs sentiment analysis, keyword extraction, and frequency analysis to provide insights.
-- **Explore News**: Users can explore the news data through an interactive web interface. The interface includes visualizations like charts and graphs to depict trends over time.
-- **Generate Summaries**: The app can generate concise summaries of the news articles, highlighting the most important points.
-- **Export Analysis**: Users can export the analysis results and summaries in various formats for further use.
 
 ## File Descriptions
 
@@ -94,12 +107,12 @@ KNA
 - **templates/**: HTML templates for the web pages.
 - **static/**: Static files (CSS) used by the HTML templates.
 - **uploads/**: Directory where uploaded files are stored.
-- **KOSPI200_Industry_Info.xlsx**: Contains industry information related to the KOSPI 200 index.
-- **custom_stopwords.txt**: Custom stopwords used for text analysis.
-- **positive.txt**: List of positive words for sentiment analysis.
-- **negative.txt**: List of negative words for sentiment analysis.
+- **KOSPI200_Industry_Info.xlsx**: An Excel file used to identify important companies mentioned in the news.
+- **custom_stopwords.txt**: Contains words to exclude during text processing, improving keyword analysis accuracy.
+- **positive.txt**: Lists of positive words used to determine the sentiment of news articles relative to the user-specified keyword.
+- **negative.txt**: List of negative words used to determine the sentiment of news articles relative to the user-specified keyword.
 - **requirements.txt**: List of Python packages required to run the app.
-- **sample.csv**: A sample CSV file for testing the application.
+- **Sample_for_testing.csv**: A sample CSV file for testing the application.
 - **venv/**: Virtual environment directory (not included in the repository).
 
 ## Contribution
