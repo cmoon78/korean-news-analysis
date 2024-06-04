@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Start Here{% endblock %}
+
+{% block content %}
+<h1>Start Your Analysis</h1>
+<h2>Upload your CSV file</h2>
+<form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data" id="uploadForm">
+    <div class="form-group">
+        <label for="file"><b>Upload CSV File:</b></label>
+        <input type="file" name="file" id="file" required>
+    </div>
+    <div class="form-group">
+        <label for="keyword"><b>Keyword:</b></label>
+        <input type="text" name="keyword" id="keyword" required>
+    </div>
+    <div class="form-group">
+        <label for="time_period"><b>Time Period:</b></label>
+        <select name="time_period" id="time_period">
+            <option value="year">Year</option>
+            <option value="month">Month</option>
+            <option value="date">Date</option>
+        </select>
+    </div>
+    <button type="submit" id="analyzeButton"><b>Analyze</b></button>
+    <div id="loading" style="display:none;">Loading...</div>
+</form>
+
+<script>
+    document.getElementById('uploadForm').onsubmit = function() {
+        document.getElementById('analyzeButton').style.display = 'none';
+        document.getElementById('loading').style.display = 'block';
+    };
+</script>
+{% endblock %}

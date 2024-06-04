@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block title %}News Analysis{% endblock %}
+
+{% block content %}
+<h1>News Analysis</h1>
+<div class="stats">
+    <div class="box">
+        <h2>Total Stories</h2>
+        <p>{{ total_stories }}</p>
+        <small>Total News: {{ total_news }}</small>
+    </div>
+    <div class="box">
+        <h2>Highest Volume Date</h2>
+        <p>{{ highest_volume_period }}</p>
+    </div>
+    <div class="box">
+        <h2>Most Published Headline</h2>
+        <p>{{ most_published_headline }}</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="column">
+        <h2>Time Series Analysis</h2>
+        <img src="{{ url_for('static', filename='uploads/timeseries.png') }}" alt="Time Series">
+    </div>
+    <div class="column">
+        <h2>Publication Date Distribution</h2>
+        <img src="{{ histogram_path }}" alt="Publication Date Distribution">
+    </div>
+</div>
+
+<div class="row">
+    <div class="column">
+        <h2>Important Companies Mentioned</h2>
+        <img src="{{ treemap_chart_path }}" alt="Treemap Chart">
+    </div>
+    <div class="column">
+        <h2>Category Distribution</h2>
+        <img src="{{ pie_chart_path }}" alt="Category Distribution">
+    </div>
+</div>
+
+<h2>News Sentiment Over Time</h2>
+<img src="{{ stacked_bar_chart_path }}" alt="Stacked Bar Chart">
+<div class="row sentiment-boxes">
+    <div class="box small">
+        <h2>Negative News Volume</h2>
+        <p>{{ negative_volume }}</p>
+    </div>
+    <div class="box small">
+        <h2>Neutral News Volume</h2>
+        <p>{{ neutral_volume }}</p>
+    </div>
+    <div class="box small">
+        <h2>Positive News Volume</h2>
+        <p>{{ positive_volume }}</p>
+    </div>
+</div>
+
+<h2>Word Cloud</h2>
+<img src="{{ url_for('static', filename='uploads/wordcloud.png') }}" alt="Word Cloud">
+
+<h2>Network Graph</h2>
+<a href="{{ network_graph_path }}" target="_blank">
+    <img src="{{ network_graph_thumbnail_path }}" alt="Network Graph Thumbnail">
+</a>
+<p style="font-size: 12px;">Click to see the image in original size</p>
+
+<h2>Filtered News by Keyword: "{{ keyword }}"</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Item ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Publication Date</th>
+            <th>Author</th>
+            <th>Link</th>
+            <th>Category1</th>
+            <th>Source</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for news in recent_news %}
+        <tr>
+            <td>{{ news['item_id'] }}</td>
+            <td>{{ news['title'] }}</td>
+            <td>{{ news['description'] }}</td>
+            <td>{{ news['pub_date'] }}</td>
+            <td>{{ news['author'] }}</td>
+            <td><a href="{{ news['link'] }}" target="_blank">Link</a></td>
+            <td>{{ news['category1'] }}</td>
+            <td>{{ news['source_name'] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Korean News Analysis</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}" class="{% if request.endpoint == 'index' %}active{% endif %}">Home</a></li>
+            <li><a href="{{ url_for('start_here') }}" class="{% if request.endpoint == 'start_here' %}active{% endif %}">Start Here</a></li>
+            <li><a href="{{ url_for('news_explore') }}" class="{% if request.endpoint == 'news_explore' %}active{% endif %}">News Explore</a></li>
+        </ul>
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Korean News Analysis</p>
+    </footer>
+</body>
+</html>
