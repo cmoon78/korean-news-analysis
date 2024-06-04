@@ -3,9 +3,10 @@
 This web app helps users understand news trends based on CSV files of uploaded news datasets that are selectively collected and processed.
 
 ## Project Structure
+```
 KNA
-├── templates
-│ ├── base.html
+├── templates 
+│ ├── base.html 
 │ ├── landing_page.html
 │ ├── start_here.html
 │ ├── news_explore.html
@@ -25,8 +26,8 @@ KNA
 ├── requirements.txt
 ├── sample.csv
 ├── LICENSE
-└── venv # Your virtual environment directory
-
+└── venv # Your virtual environment director
+```
 
 ## Installation
 
