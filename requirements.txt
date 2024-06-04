@@ -11,4 +11,4 @@ kiwipiepy
 nltk
 squarify
 wordcloud
-
+scipy
